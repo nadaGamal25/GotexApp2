@@ -24,6 +24,8 @@ export default function Companies() {
               console.error(error);
             }
           }
+
+         
   return (
     <div>Companies</div>
   )

@@ -11,6 +11,10 @@ import jwtDecode from 'jwt-decode';
 import Wallet from './Components/Wallet/Wallet';
 import PaymentOrders from './Components/PaymentOrders/PaymentOrders';
 import Companies from './Components/Companies/Companies';
+import APIs from './Components/APIs/APIs';
+import VerifyUser from './Components/VerifyUser/VerifyUser';
+import ForgetPassword from './Components/ForgetPassword/ForgetPassword';
+import UpdatePassword from './Components/UpdatePassword/UpdatePassword.jsx';
 
 
 function App() {
@@ -30,18 +34,33 @@ function App() {
     console.log(userData)
   }
 
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      window.alert('الجلسة انتهت..قم بتسجيل الدخول مرة اخرى');
+      localStorage.removeItem('userToken');
+      setuserData(null);
+      window.location.href = '/';
+    }, 60 * 60 * 1000); 
+
+    return () => clearTimeout(timeout);
+  }, [userData]);
+
   let routers =createBrowserRouter([
     {index:true,element:<Login saveUserData={saveUserData} setuserData={setuserData} userData={userData}/>},
     // {index:true,element:<Login/>},
     // {path:'signUp',element:<SignUp setuserData={setuserData} userData={userData} />},
     {path:'signUp',element:<SignUp/>},
+    {path:'verifyUser',element:<VerifyUser/>},
+    {path:'forgetPassword',element:<ForgetPassword/>},
+    {path:'updatePassword/:x',element:<UpdatePassword/>},
     
-    // {path:'/',element:<Layout setuserData={setuserData} userData={userData}/> ,children:[
-      {path:'/',element:<Layout/> ,children:[
+    
+    {path:'/',element:<Layout setuserData={setuserData} userData={userData}/> ,children:[
         {path:'main',element:<Main/>},
         {path:'wallet',element:<Wallet/>},
         {path:'paymentOrders',element:<PaymentOrders/>},
         {path:'companies',element:<Companies/>},
+        {path:'apis',element:<APIs/>},
       ]},
     
   ])
