@@ -47,6 +47,10 @@ label{
   padding-right: 8px;
   padding-bottom: 5px;
 }
+.h{
+  /* height: 00px !important; */
+  text-wrap: wrap !important;
+}
 .btn-orange{
   background-color: var(--orange-color) !important;
   color: #fff !important;
@@ -56,12 +60,29 @@ label{
   background-color: #dc4606 !important;
   color: #fff !important;
 }
+.btn-dark{
+  background-color: var(--dark--color) !important;
+  color: #fff !important;
+  border: none !important;
+  padding: 15px 35px !important;
+  font-size: 20px !important;
+  font-weight: 500 !important;
+
+}
+.btn-dark:hover{
+  background-color: #0c5276 !important;
+  color: #fff !important;
+
+}
 .txt-dark{
   color: var(--dark--color) !important;
 }
 .heading h3{
   color: var(--dark--color);
-  font-weight: 500;
+  font-weight: 700;
+}
+.heading i{
+  padding-left: 2px;
 }
 .gray-table{
   background-color: #f9f9f9;
@@ -369,3 +390,62 @@ nav form .form-input button{
 }
 
 /* end balance */
+/* verify user */
+.verify-container{
+  background-color: var(--bg-color);
+}
+.verify-box{
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 5px 5px 10px #8ca0aa;
+  width: 50%;
+  padding:20px 30px;
+}
+.verify-box p{
+  color: #0c5276;
+  font-weight:600;
+}
+.verify-box .loginlink{
+  color: var(--orange-color);
+  font-weight: 600;
+  margin-bottom: 5px;
+  border: solid 1px var(--orange-color);
+  padding: 6px;
+  border-radius: 5px;
+}
+.verify-box .loginlink:hover{
+  color: #e14806;
+}
+.verify-box .verify-btn{
+  color: #fff !important;
+  background-color:#08354c !important;
+  margin-bottom: 5px;
+}
+.verify-box .verify-btn:hover{
+  color: #fff !important;
+  background-color: #11577a !important;
+}
+@media only screen and (max-width: 768px){
+  .verify-box{
+    width: 90%;
+    padding: 20px 15px;
+  }
+  .verify-box .btns{
+    flex-direction: column;
+  }
+  .invit-box{
+    width: 90%;
+  }
+}
+/* forget password */
+.email-box{
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 5px 5px 10px #8ca0aa;
+  width: 60%;
+  padding: 50px;
+}
+.email-box p{
+  color: var(--dark--color);
+  font-weight: 600;
+}

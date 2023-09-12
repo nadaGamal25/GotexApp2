@@ -48,7 +48,7 @@ export default function SignUp() {
         setisLoading(false);
         console.log(response.data);
         window.alert('تم التسجيل بنجاح');
-        navigate('/');
+        navigate('/verifyUser');
       } else {
         setisLoading(true);
         setError(response.data.msg);

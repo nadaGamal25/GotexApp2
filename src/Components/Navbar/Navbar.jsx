@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 import logo from '../../assets/logo.png'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import {Modal, Button } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css'; 
+// import generateApiKey from 'generate-api-key';
 
 
 export default function Navbar({userData ,logout}) {
@@ -118,9 +121,53 @@ export default function Navbar({userData ,logout}) {
           const handleDepositChange = (event) => {
             setDepositAmount(Number(event.target.value));
           };
+
+          const [testKey,setTestKey]=useState('')
+       
+  async function getTestKey() {
+    try {
+      const response = await axios.get(
+        'https://dashboard.go-tex.net/gotex-co-test/user/get-test-api-key',
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('userToken')}`,
+          },
+        }
+      );
+      const apiKeyData = response.data.data;
+      console.log(response)
+      console.log(response.data.data)
+      // const apiKey = generateApiKey(apiKeyData, 150);
+
+      setTestKey(response.data.data);
+      setShowModalKey(true);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  // function generateApiKey(input, length) {
+  //   if (input.length >= length) {
+  //     return input.substring(0, length);
+  //   } else {
+  //     const padding = Array(length - input.length).fill('#').join('');
+  //     return input + padding;
+  //   }
+  // }
+        
+        
+          const [showModalKey, setShowModalKey] = useState(false);
+
+  const openModalKey = () => {
+    setShowModalKey(true);
+  };
+
+  const closeModalKey = () => {
+    setShowModalKey(false);
+  };
   return (
     <>
-    {/* <!-- start side navbar --> */}
+    {/* <!-- start side navbar --> */} 
     <section id="sidebar" className={sideToggle? "hide" :""}>
         <a href="#" class="brand">
             <img src={logo} alt='logo'/>
@@ -149,12 +196,26 @@ export default function Navbar({userData ,logout}) {
                 </span>
                 </Link>
             </li>
-            <li className=''>
+            <li>
+                <Link to="#" onClick={getTestKey}>
+                <i class="fa-solid fa-key bx"></i>
+                                  <span class="text">Generate api-test-key 
+                </span>
+                </Link>
+            </li>
+            <li>
+                <Link to="/apis">
+                <i class="fa-solid fa-file-lines bx"></i>
+                  <span class="text">APIs Documentation 
+                </span>
+                </Link>
+            </li>
+            {/* <li className=''>
                 <Link  to="/companies">
                     <i class="fa-solid fa-truck-fast bx"></i>
                     <span class="text">شركات الشحن</span>
                 </Link>
-            </li>
+            </li> */}
             
             
             <li>
@@ -221,7 +282,25 @@ export default function Navbar({userData ,logout}) {
             </div>
           </div>
         </div>
-      )}     
+      )}   
+      <Modal show={showModalKey} onHide={closeModalKey}>
+        <Modal.Header >
+          <Modal.Title>Generated api-test-key
+             </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          {/* Your content inside the modal */}
+          <div style={{ wordWrap: 'break-word', whiteSpace: 'pre-wrap' }}>
+            {testKey}
+            </div>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={closeModalKey}>
+          إغلاق
+          </Button>
+          {/* Additional buttons or actions can be added here */}
+        </Modal.Footer>
+      </Modal>  
     </>
   )
 }
