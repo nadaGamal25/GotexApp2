@@ -39,7 +39,26 @@ export default function Login({saveUserData}) {
       console.log(error);
       window.alert('كلمة المرور او البريد الالكترونى قد يكون خطأ');
     }
-  }
+  } async function sendLoginAdminToApi(){
+    try {
+          const {data} = await axios.post('https://dashboard.go-tex.net/gotex-co-test/admin/login', theUser);
+          if (data.msg === 'ok') {
+            navigate('/userListAdmin');
+            console.log(data.token)
+            setisLoading(false)
+            localStorage.setItem('userToken', data.token);
+            saveUserData();
+          } else {
+            setisLoading(false)
+
+            setError(data.msg)
+            console.log(data.msg)
+          }
+        } catch (error) {
+          console.log(error);
+          window.alert('كلمة المرور او البريد الالكترونى قد يكون خطأ');
+        }
+      }
 
         function submitLoginForm(e) {
           e.preventDefault();
@@ -50,9 +69,11 @@ export default function Login({saveUserData}) {
             setisLoading(false);
             seterrorList(validation.error.details);
           } else {
-        
+            if (theUser.email === 'admin@gotex.com' && theUser.password === '753698@Gotex') {
+              sendLoginAdminToApi();
+            } else {
               sendLoginDataToApi();
-            
+            }
           }
         }
 

@@ -51,6 +51,20 @@ label{
   /* height: 00px !important; */
   text-wrap: wrap !important;
 }
+.search-box{
+  background-color: #f9f9f9;
+  border-radius: 15px;
+}
+.search-box button{
+  background-color: var(--dark--color);
+  color: #fff;
+  width: 100%;
+}
+.search-box button:hover{
+  background-color: var(--dark--color);
+  box-shadow: 2px 2px 5px #8ca0aa;
+  color: #fff;
+}
 .btn-orange{
   background-color: var(--orange-color) !important;
   color: #fff !important;
