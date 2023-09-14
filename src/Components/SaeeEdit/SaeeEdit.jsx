@@ -78,24 +78,29 @@ function submitPricesForm(e){
     return scheme.validate(Prices, {abortEarly:false});
   }
   useEffect(()=>{
-    // getCompaniesDetailsOrders()
+    getCompaniesDetailsOrders()
   },[])
   const [companiesDetails,setCompaniesDetails]=useState([])
   async function getCompaniesDetailsOrders() {
     try {
-      const response = await axios.get('https://dashboard.go-tex.net/gotex-co-test/admin/companies/get-all');
+      const response = await axios.get('https://dashboard.go-tex.net/gotex-co-test/admin/companies/get-all',
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('userToken')}`,
+        },
+      });
       const companiesPrices = response.data.data.companies;
       console.log(companiesPrices)
       setCompaniesDetails(companiesPrices)
       setPrices({
         ...Prices,
-        status:companiesPrices[0].status, 
-        userprice:companiesPrices[0].userprice,
-        marketerprice:companiesPrices[0].marketerprice,
-        kgprice:companiesPrices[0].kgprice,
-        userCodPrice:companiesPrices[0].codprice,
-        maxcodmarkteer:companiesPrices[0].maxcodmarkteer,
-        mincodmarkteer: companiesPrices[0].mincodmarkteer, 
+        status:companiesPrices[5].status, 
+        userprice:companiesPrices[5].userprice,
+        // marketerprice:companiesPrices[0].marketerprice,
+        kgprice:companiesPrices[5].kgprice,
+        userCodPrice:companiesPrices[5].codprice,
+        // maxcodmarkteer:companiesPrices[0].maxcodmarkteer,
+        // mincodmarkteer: companiesPrices[0].mincodmarkteer, 
       });
     } catch (error) {
       console.error(error);
@@ -109,9 +114,9 @@ function submitPricesForm(e){
                 <div className="gray-box p-3">
                   <h5 className="text-center mb-3">أسعار شركة ساعي</h5>
                   <form onSubmit={submitPricesForm} action="">
-                    <label htmlFor="">سعر المسخدم</label>
+                    <label htmlFor="">سعر الدفع اونلاين</label>
                     <input onChange={getPrices} type="number"
-                    //  value={Prices.userprice} step="0.001" 
+                     value={Prices.userprice} step="0.001" 
                      className='my-input my-2 form-control' name='userprice' />
                     {errorList.map((err,index)=>{
       if(err.context.label ==='userprice'){
@@ -120,22 +125,23 @@ function submitPricesForm(e){
       
     })}
                    
-                    <label htmlFor="">سعر الزيادة</label>
-                    <input onChange={getPrices} type="number" 
-                    // value={Prices.kgprice} 
-                    step="0.001" className='my-input my-2 form-control' name='kgprice' />
+                    
+                    <label htmlFor="">سعر الدفع عند الاستلام</label>
+                    <input onChange={getPrices} type="number"
+                     value={Prices.userCodPrice}
+                     step="0.001" className='my-input my-2 form-control' name='userCodPrice' />
                     {errorList.map((err,index)=>{
-      if(err.context.label ==='kgprice'){
+      if(err.context.label ==='userCodPrice'){
         return <div key={index} className="alert alert-danger my-2">يجب ملىء جميع البيانات</div>
       }
       
     })}
-                    <label htmlFor="">سعر الدفع عند الاستلام</label>
-                    <input onChange={getPrices} type="number"
-                    //  value={Prices.userCodPrice}
-                     step="0.001" className='my-input my-2 form-control' name='userCodPrice' />
+    <label htmlFor="">سعر الزيادة</label>
+                    <input onChange={getPrices} type="number" 
+                    value={Prices.kgprice} 
+                    step="0.001" className='my-input my-2 form-control' name='kgprice' />
                     {errorList.map((err,index)=>{
-      if(err.context.label ==='userCodPrice'){
+      if(err.context.label ==='kgprice'){
         return <div key={index} className="alert alert-danger my-2">يجب ملىء جميع البيانات</div>
       }
       
