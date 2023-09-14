@@ -51,6 +51,25 @@ label{
   /* height: 00px !important; */
   text-wrap: wrap !important;
 }
+.edit-form{
+  width: 80%;
+  margin: auto;
+}
+.edit-form h5{
+  font-weight: 600;
+}
+@media only screen and (max-width: 768px){
+  .edit-form{
+    width: 100%;
+  }
+}
+.gray-box{
+  background-color: #f9f9f9;
+  border-radius: 15px;
+}
+.gray-box h5{
+  color: var(--dark--color);
+}
 .search-box{
   background-color: #f9f9f9;
   border-radius: 15px;

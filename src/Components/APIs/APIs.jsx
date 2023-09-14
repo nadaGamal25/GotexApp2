@@ -9,11 +9,12 @@ import armx from '../../assets/armx.jpg'
 import logo from '../../assets/logo.png';
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-import pdf from '../../assets/saeeDocs.pdf'
+import pdfSaee from '../../assets/saeeDocs.pdf'
+import pdfImile from '../../assets/Gotex_Doc_Imile.pdf'
 export default function APIs() {
-  function openSaeeDocs(){
-    window.open({logo})
-  }
+ 
+  
+  
   return (
     <>
     <div className='paddingCompanies p-3' id='content'>
@@ -28,8 +29,9 @@ export default function APIs() {
               </div>
               <div className="d-flex pt-4 justify-content-between">
                 <h4></h4>
-              <a href='https://drive.google.com/file/d/1mAVvXgFfo-9VvnV1qsD3SYhtX8SHZ5bb/view?usp=sharing' target='_blank' className="btn btn-lightblue">
-                Open Documentation
+                
+              <a href={pdfSaee} target='_blank' className="btn btn-lightblue" Download>
+                Download Documentation
               </a>
              </div>
             
@@ -43,8 +45,8 @@ export default function APIs() {
               </div>
               <div className="d-flex pt-4 justify-content-between">
                 <h4></h4>
-                <a href='https://drive.google.com/file/d/15p_Gm3pOj7J3VWjIme8CRd5VjhD_HKvV/view?usp=sharing' target='_blank' className="btn btn-lightblue">
-                Open Documentation
+                <a href={pdfImile} target='_blank' className="btn btn-lightblue" Download>
+                Download Documentation
               </a>
              </div>
              
