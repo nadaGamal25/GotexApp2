@@ -24,6 +24,7 @@ export default function SignUp() {
     passwordconfirm:"",
     address: "",
     location: "",
+    cr:"",
   })
   async function sendRegisterDataToApi() {
     const formData = new FormData();
@@ -35,9 +36,9 @@ export default function SignUp() {
     formData.append('address', theUser.address);
     formData.append('location', theUser.location);
    
-    // if (selectedFile) {
-    //   formData.append('cr', selectedFile, selectedFile.name);
-    // }
+    if (selectedFile) {
+      formData.append('cr', selectedFile, selectedFile.name);
+    }
   
     try {
       const response = await axios.post('https://dashboard.go-tex.net/gotex-co-test/user/signup', formData
@@ -101,6 +102,7 @@ function submitRegisterForm(e){
         }),
         address:Joi.string().required(),
         location:Joi.string().required(),
+        cr:Joi.allow(null, ''),
     });
 
     return scheme.validate(theUser, {abortEarly:false});
@@ -193,6 +195,18 @@ function submitRegisterForm(e){
       }
       
     })}
+    <label htmlFor="cr">توثيق النشاط التجارى :</label><br/>
+      <input
+        type="file"
+        className="my-2"
+        name="cr"
+        id="cr"
+        onChange={(e) => {
+          handleFileChange(e);
+          getUserData(e);
+        }}
+    
+      />
       
       <p className="email-note">* يرجى عدم التسجيل بنفس الايميل أكثر من مرة</p>
       <button className='btn btn-orange'>

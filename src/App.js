@@ -15,6 +15,9 @@ import APIs from './Components/APIs/APIs';
 import VerifyUser from './Components/VerifyUser/VerifyUser';
 import ForgetPassword from './Components/ForgetPassword/ForgetPassword';
 import UpdatePassword from './Components/UpdatePassword/UpdatePassword.jsx';
+import UsersListAdmin from './Components/UsersListAdmin/UsersListAdmin';
+import LayoutAdmin from './Components/LayoutAdmin/LayoutAdmin';
+import CompaniesAdmin from './Components/CompaniesAdmin/CompaniesAdmin';
 
 
 function App() {
@@ -62,7 +65,11 @@ function App() {
         {path:'companies',element:<Companies/>},
         {path:'apis',element:<APIs/>},
       ]},
-    
+      {path:'/',element:<LayoutAdmin setuserData={setuserData} userData={userData}/> ,children:[
+        // {path:'companiesAdmin',element:<ErrorBoundary><CompaniesAdmin userData={userData}/></ErrorBoundary>},
+        {path:'userListAdmin',element: <UsersListAdmin userData={userData}/>},
+        {path:'companiesAdmin',element: <CompaniesAdmin userData={userData}/>},
+      ]},
   ])
   return (
     <> 
