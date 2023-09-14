@@ -36,6 +36,21 @@ export default function APIs() {
               
             </div>
           </div>
+          <div className="col-md-6">
+            <div className="company">
+              <div className="text-center">
+              <img src={imile} alt="company" />
+              </div>
+              <div className="d-flex pt-4 justify-content-between">
+                <h4></h4>
+                <a href='https://drive.google.com/file/d/15p_Gm3pOj7J3VWjIme8CRd5VjhD_HKvV/view?usp=sharing' target='_blank' className="btn btn-lightblue">
+                Open Documentation
+              </a>
+             </div>
+             
+            </div>
+          </div>
+         
           
             <div className="col-md-6 ">
             <div className="company ">
@@ -102,21 +117,7 @@ export default function APIs() {
             </div>
           </div>
           
-          <div className="col-md-6">
-            <div className="company">
-              <div className="text-center">
-              <img src={imile} alt="company" />
-              </div>
-              <div className="d-flex pt-4 justify-content-between">
-                <h4></h4>
-              <button className="btn btn-lightblue">
-                غير متاح حاليا
-              </button>
-             </div>
-             
-            </div>
-          </div>
-         
+        
           <div className="col-md-6">
             <div className="company">
               <div className="text-center">
