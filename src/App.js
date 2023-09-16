@@ -18,6 +18,9 @@ import UpdatePassword from './Components/UpdatePassword/UpdatePassword.jsx';
 import UsersListAdmin from './Components/UsersListAdmin/UsersListAdmin';
 import LayoutAdmin from './Components/LayoutAdmin/LayoutAdmin';
 import CompaniesAdmin from './Components/CompaniesAdmin/CompaniesAdmin';
+import ShipmentsAdmin from './Components/ShipmentsAdmin/ShipmentsAdmin';
+import SaeeEdit from './Components/SaeeEdit/SaeeEdit';
+import ImileEdit from './Components/ImileEdit/ImileEdit';
 
 
 function App() {
@@ -69,6 +72,9 @@ function App() {
         // {path:'companiesAdmin',element:<ErrorBoundary><CompaniesAdmin userData={userData}/></ErrorBoundary>},
         {path:'userListAdmin',element: <UsersListAdmin userData={userData}/>},
         {path:'companiesAdmin',element: <CompaniesAdmin userData={userData}/>},
+        {path:'shipmentsAdmin',element: <ShipmentsAdmin userData={userData}/>},
+        {path:'saeeEdit',element: <SaeeEdit userData={userData}/>},
+        {path:'imileEdit',element: <ImileEdit userData={userData}/>},
       ]},
   ])
   return (
