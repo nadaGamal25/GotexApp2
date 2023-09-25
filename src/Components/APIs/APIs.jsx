@@ -9,7 +9,7 @@ import armx from '../../assets/armx.jpg'
 import logo from '../../assets/logo.png';
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-import pdfSaee from '../../assets/saeeDocs.pdf'
+import pdfSaee from '../../../src/Gotex_Doc_Saee.pdf'
 import pdfImile from '../../assets/Gotex_Doc_Imile.pdf'
 export default function APIs() {
  
