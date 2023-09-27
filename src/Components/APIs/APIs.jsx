@@ -7,10 +7,14 @@ import sms from '../../assets/sms.jpg'
 import spl from '../../assets/spl.jpg'
 import armx from '../../assets/armx.jpg'
 import logo from '../../assets/logo.png';
+import jt from '../../assets/jt.jpg';
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import pdfSaee from '../../../src/Gotex_Doc_Saee.pdf'
-import pdfImile from '../../assets/Gotex_Doc_Imile.pdf'
+import pdfSmsa from '../../../src/Gotex_Doc_Smsa.pdf'
+import pdfJt from '../../../src/Gotex_Doc_J&T.pdf'
+import pdfAramex from '../../../src/Gotex_Doc_Aramex.pdf'
+import pdfImile from '../../../src/Gotex_Doc_Aramex.pdf'
 export default function APIs() {
  
   
@@ -82,9 +86,9 @@ export default function APIs() {
               </div>
               <div className="d-flex pt-4 justify-content-between">
                 <h4></h4>
-              <button className="btn btn-lightblue">
-                غير متاح حاليا
-              </button>
+                <a href={pdfAramex} target='_blank' className="btn btn-lightblue" Download>
+                Download Documentation
+              </a>
              </div>
              
             </div>
@@ -96,9 +100,23 @@ export default function APIs() {
               </div>
               <div className="d-flex pt-4 justify-content-between">
                 <h4></h4>
-              <button className="btn btn-lightblue">
-                غير متاح حاليا
-              </button>
+                <a href={pdfSmsa} target='_blank' className="btn btn-lightblue" Download>
+                Download Documentation
+              </a>
+             </div>
+            
+            </div>
+          </div>
+          <div className="col-md-6">
+            <div className="company">
+              <div className="text-center">
+              <img src={jt} alt="company" />
+              </div>
+              <div className="d-flex pt-4 justify-content-between">
+                <h4></h4>
+                <a href={pdfJt} target='_blank' className="btn btn-lightblue" Download>
+                Download Documentation
+              </a>
              </div>
             
             </div>
