@@ -12,21 +12,7 @@ export default function Navbar({userData ,logout}) {
     let navigate= useNavigate(); //hoke
   const [sideToggle ,setSideToggle]=useState(false);
 
-  // useEffect(() => {
-  //   const handleResize = () => {
-  //     if (window.innerWidth < 768) {
-  //       setSideToggle(true);
-  //     } else {
-  //       setSideToggle(false);
-  //     }
-  //   };
-
-  //   window.addEventListener('resize', handleResize);
-
-  //   return () => {
-  //     window.removeEventListener('resize', handleResize);
-  //   };
-  // }, []);
+  
 
 
   useEffect(()=>{
