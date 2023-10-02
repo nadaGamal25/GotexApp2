@@ -58,20 +58,7 @@ export default function APIs() {
           </div>
          
           
-            <div className="col-md-6 ">
-            <div className="company ">
             
-              <div className="text-center">
-              <img src={logo} className='bg-white' alt="company" />
-              </div>
-              <div className="d-flex pt-4 justify-content-between">
-                <h4></h4>
-              <button className="btn btn-lightblue">
-                غير متاح حاليا
-              </button>
-             </div>
-            </div>
-          </div>
     {/* </div >
     
           </div> */}
@@ -121,6 +108,20 @@ export default function APIs() {
             
             </div>
           </div>
+          <div className="col-md-6 ">
+            <div className="company ">
+            
+              <div className="text-center">
+              <img src={logo} className='bg-white' alt="company" />
+              </div>
+              <div className="d-flex pt-4 justify-content-between">
+                <h4></h4>
+              <button className="btn btn-lightblue">
+                غير متاح حاليا
+              </button>
+             </div>
+            </div>
+          </div>
           <div className="col-md-6">
             <div className="company">
               <div className="text-center">
@@ -138,7 +139,7 @@ export default function APIs() {
           </div>
           
         
-          <div className="col-md-6">
+          {/* <div className="col-md-6">
             <div className="company">
               <div className="text-center">
               <img src={glt} alt="company" />
@@ -152,7 +153,7 @@ export default function APIs() {
            
             </div>
           </div>
-          
+           */}
         </div>
       </div>
     </div>
