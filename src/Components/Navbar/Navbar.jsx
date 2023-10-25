@@ -183,7 +183,14 @@ export default function Navbar({userData ,logout}) {
                 </Link>
             </li>
             <li>
-                <Link to="#" onClick={getTestKey}>
+                <Link to="#"
+                onClick={() => {
+                  if (window.confirm('Are you sure about generate new api test key?')) {
+                   getTestKey();
+                  }
+                }}
+                //  onClick={getTestKey}
+                 >
                 <i class="fa-solid fa-key bx"></i>
                                   <span class="text">Generate api-test-key 
                 </span>
