@@ -14,7 +14,7 @@ import pdfSaee from '../../../src/Gotex_Doc_Saee.pdf'
 import pdfSmsa from '../../../src/Gotex_Doc_Smsa.pdf'
 import pdfJt from '../../../src/Gotex_Doc_J&T.pdf'
 import pdfAramex from '../../../src/Gotex_Doc_Aramex.pdf'
-import pdfImile from '../../../src/Gotex_Doc_Aramex.pdf'
+import pdfImile from '../../../src/Gotex_Doc_Imile.pdf'
 export default function APIs() {
  
   
