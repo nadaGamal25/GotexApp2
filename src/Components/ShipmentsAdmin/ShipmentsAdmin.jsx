@@ -467,8 +467,8 @@ const exportToExcel = async () => {
 ) : (
   <td>_</td>
 )}
-               {item.status?<td >{item.status}</td>:<td>_</td>}
-               {/* className={item.status=== "canceled" ?' text-danger fw-bold':''} */}
+               {item.status?<td className={item.status=== "canceled" ?' text-danger fw-bold':''}>{item.status}</td>:<td>_</td>}
+               
                 {item.paytype?<td>{item.paytype}</td>:<td>_</td>}
 
                 {item.user && item.user.mobile?<td>{item.user.mobile}</td>:<td>_</td>}
