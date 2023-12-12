@@ -38,7 +38,7 @@ export default function Login({saveUserData}) {
     } catch (error) {
       console.log(error);
       window.alert('كلمة المرور او البريد الالكترونى قد يكون خطأ');
-    }
+    }   
   } async function sendLoginAdminToApi(){
     try {
           const {data} = await axios.post('https://dashboard.go-tex.net/gotex-co-test/admin/login', theUser);
