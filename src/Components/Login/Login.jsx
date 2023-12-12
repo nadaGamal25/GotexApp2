@@ -69,7 +69,7 @@ export default function Login({saveUserData}) {
             setisLoading(false);
             seterrorList(validation.error.details);
           } else {
-            if (theUser.email === 'admin@gotex.com' && theUser.password === '753698@Gotex') {
+            if (theUser.email === 'admin@gotex.com') {
               sendLoginAdminToApi();
             } else {
               sendLoginDataToApi();
